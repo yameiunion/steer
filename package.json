@@ -1,0 +1,49 @@
+{
+  "name": "@steerprotocol/strategy-template-assemblyscript",
+  "version": "0.0.1",
+  "description": "AssemblyScript based strategy template for the Steer Protocol",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn jest",
+    "asbuild:untouched": "asc assembly/index.ts --target debug --exportRuntime --transform as-bind",
+    "asbuild:optimized": "asc assembly/index.ts --target release --exportRuntime --transform as-bind",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
+    "docs": "typedoc --tsconfig ./tsconfig.json",
+    "strategy": "yarn asbuild && yarn test",
+    "semantic-release": "semantic-release",
+    "commit": "cz",
+    "postinstall": "yarn asbuild"
+  },
+  "author": "Derek Barrera <derekbarrera@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@assemblyscript/loader": "0.19.9",
+    "@babel/preset-typescript": "^7.14.5",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@steerprotocol/base-strategy": "^0.0.2",
+    "@steerprotocol/concentrated-liquidity-strategy": "0.0.10",
+    "@steerprotocol/strategy-utils": "^1.1.2",
+    "as-bind": "^0.8.0",
+    "assemblyscript-json": "^1.1.0",
+    "commitizen": "^4.2.4",
+    "conventional-changelog-conventionalcommits": "^4.6.0",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.8",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.11.11",
+    "assemblyscript": "0.19.9",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^27.0.6",
+    "cz-conventional-changelog": "3.3.0",
+    "jest": "^27.0.6",
+    "regenerator-runtime": "^0.13.9",
+    "semantic-release": "^17.4.5",
+    "typedoc": "^0.21.5"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  }
+}

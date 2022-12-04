@@ -1,0 +1,4 @@
+{
+  "conventionalCommits.scopes": [],
+  "jest.jestCommandLine": "yarn test"
+}
